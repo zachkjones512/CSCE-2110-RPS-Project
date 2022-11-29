@@ -5,13 +5,13 @@
 
 using namespace std;
 
-char zachmove(int rounds, string oppmoves, string &mymoves){ //this algorithm attempts to find a pattern in my opponents moves by attempting to see if the last five moves had been played prior
+char zachmove(int rounds, string oppmoves, string mymoves){ //this algorithm attempts to find a pattern in my opponents moves by attempting to see if the last five moves had been played prior
     char movelist[3] = {'R', 'P', 'S'}; 
     srand(time(NULL));
 
 
     if(rounds < 6){
-        int randmove = rand()%3 //randomizes the first six rounds of play(before algorithm can make predictions)
+        int randmove = rand()%3; //randomizes the first six rounds of play(before algorithm can make predictions)
         return movelist[randmove];
     }
     else{ //if its round 7 or above
@@ -33,7 +33,7 @@ char zachmove(int rounds, string oppmoves, string &mymoves){ //this algorithm at
         }
         else{ //if the string is not found, return a random move
             
-            int randmove = rand()%3
+            int randmove = rand()%3;
             return movelist[randmove];
         }
     }
