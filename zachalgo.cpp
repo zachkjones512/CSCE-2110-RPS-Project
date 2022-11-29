@@ -43,6 +43,10 @@ char zachmove(int rounds, string oppmoves, string mymoves){ //this algorithm att
 
 char altmove(int rounds, string oppmoves, string mymoves){ //counters the last move
 
+    if(rounds < 2){
+        return 'R';
+    }
+    else{
     if(mymoves[rounds] == 'R'){//finds the index in the string array of the most recent move, then counters it
         return 'P';
     }
@@ -51,6 +55,7 @@ char altmove(int rounds, string oppmoves, string mymoves){ //counters the last m
     }
     if (mymoves[rounds] == 'S'){
         return 'R';
+    }
     }
 
 
