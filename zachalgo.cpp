@@ -18,7 +18,7 @@ char zachmove(int rounds, string oppmoves, string mymoves){ //this algorithm att
         
         string lastfive = oppmoves.substr(rounds-5, 5); //create a substring of the last five moves
         size_t found = oppmoves.find(lastfive); //find the position of the substring in the list of opponent moves
-        if (found != string::npos){ //if the substring is found, read the following move and then counter it
+        if (found != string::npos && found < rounds-5){ //if the substring is found, read the following move and then counter it
             if (oppmoves[found+5] == 'R'){
             return 'P';
             }
