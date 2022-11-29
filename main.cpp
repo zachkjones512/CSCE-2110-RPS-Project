@@ -46,13 +46,21 @@ int RPS_Judge(char playerOne, char playerTwo, bool printMessage){
 }
 
 int main(){
+    int num_rounds = 10;
+    
+    int player_1_wins = 0, player_2_wins = 0, ties = 0;
+    char player_1_choice = '|', player_2_choice = '|';
+    
+    for(int i = 0; i < num_rounds; i++){
+        
+        //player_1_choice = AGENT ONE GOES HERE
+        //player_2_choice = AGENT TWO GOES HERE
+
+        int result = RPS_Judge(player_1_choice, player_2_choice, true);
 
 
-        //Player one goes here
-        //Player two goes here
 
-
-
+    }
 
     return 0;
 }
