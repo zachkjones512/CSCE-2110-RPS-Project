@@ -5,14 +5,13 @@
 
 using namespace std;
 
-char zachmove(int rounds, string oppmoves, string &mymoves;){ //this algorithm attempts to find a pattern in my opponents moves by attempting to see if the last five moves had been played prior
+char zachmove(int rounds, string oppmoves, string &mymoves){ //this algorithm attempts to find a pattern in my opponents moves by attempting to see if the last five moves had been played prior
     char movelist[3] = {'R', 'P', 'S'}; 
     srand(time(NULL));
 
 
     if(rounds < 6){
-        int randmove = rand()%3
-        mymoves = mymoves + movelist[randmove] //randomizes the first six rounds of play(before algorithm can make predictions)
+        int randmove = rand()%3 //randomizes the first six rounds of play(before algorithm can make predictions)
         return movelist[randmove];
     }
     else{ //if its round 7 or above
@@ -21,14 +20,13 @@ char zachmove(int rounds, string oppmoves, string &mymoves;){ //this algorithm a
         size_t found = oppmoves.find(lastfive); //find the position of the substring in the list of opponent moves
         if (found != string::npos){ //if the substring is found, read the following move and then counter it
             if (oppmoves[found+5] == 'R'){
-            mymoves = mymoves + 'P';
+            return 'P';
             }
             if (oppmoves[found+5] == 'P'){
-            mymoves = mymoves + 'S';
+            return 'S';
             }
 
             if (oppmoves[found+5] == 'S'){
-            mymoves = mymoves + 'R';
             return 'R';
             }
 
@@ -36,9 +34,24 @@ char zachmove(int rounds, string oppmoves, string &mymoves;){ //this algorithm a
         else{ //if the string is not found, return a random move
             
             int randmove = rand()%3
-            mymoves = mymoves + movelist[randmove]
             return movelist[randmove];
         }
     }
     
+}
+
+
+char altmove(int rounds, string oppmoves, string mymoves){
+
+    if(mymoves[rounds] == 'R'){
+        return 'P';
+    }
+    if(mymoves[rounds] == 'P'){
+        return 'S';
+    }
+    if (mymoves[rounds] == 'S'){
+        return 'R';
+    }
+
+
 }
