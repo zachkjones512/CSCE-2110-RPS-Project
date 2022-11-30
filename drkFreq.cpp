@@ -12,6 +12,8 @@ class Frequency{
     int paperSum;
     int scissorSum;
 
+    string moves;
+
     public:
     Frequency(){
         rockFreq = 0.00;
@@ -22,36 +24,55 @@ class Frequency{
         paperFreq = 0.00;
         scissorFreq = 0.00;
     }
-    char chooseMove(char);
+    char frequency();
+
 
 
 
 };
 
-char prevMoves[5] = {'R', 'R', 'R', 'R', 'R'};
+//char prevMoves[5] = {'R', 'R', 'R', 'R', 'R'};
 
-char frequency(char moves[]){
-    
-    Frequency freq;
+char Frequency::frequency(){
 
+    // gets sum of each move
     for(int i=0; i < moves.length(); i++){
         char sc = moves[i];
         switch(sc){
             case 'R':
-                freq.rockSum++;
+                rockSum++;
                 break;
             
             case 'P':
-                freq.paperSum++;
+                paperSum++;
                 break;
 
             case 'S':
-                freq.scissorSum++;
+                scissorSum++;
                 break;
             
             default:
                 cout << "invalid move" << endl;
         }
+    }
+
+    // gets frequency of each moves occurance
+    rockFreq = rockSum/moves.length();
+    paperFreq = paperSum/moves.length();
+    scissorFreq = scissorSum/moves.length();
+
+
+    
+    if(rockFreq > paperFreq && rockFreq > scissorFreq){
+        return 'P';
+    }
+
+    if(paperFreq > rockFreq && paperFreq > scissorFreq){
+        return 'S';
+    }
+
+    if(scissorFreq > paperFreq && scissorFreq > rockFreq){
+        return 'R';
     }
     return 0;
 }
