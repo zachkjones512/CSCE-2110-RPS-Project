@@ -1,6 +1,4 @@
 #include <iostream>
-#include "rps_manual.h"
-#include "rps_ai_one.h"
 
 //Just a simple judge for Rock Paper Scissors
 //Inputs must be 'R', 'P', or 'S'. Otherwise it will reject the ruling
