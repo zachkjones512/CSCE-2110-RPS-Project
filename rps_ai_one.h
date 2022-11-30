@@ -3,9 +3,11 @@ class RPS_AI_One{
     //Constructors
         RPS_AI_One();
     //Mutators
-        void BalanceWeights(int last_move, int move_before_last);
+        void _BalanceWeights(int last_move, int move_before_last);
+        int _CharToRPS(char input);
+        char _RPSToChar(int input);
     //Accessors
-        int ChooseMove(int last_move);
+        char ChooseMove(char recent_move);
     //Destructors
         ~RPS_AI_One();
     private:
