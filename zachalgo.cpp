@@ -1,3 +1,18 @@
+/*
+Name: Zachary Jones
+Class: CSCE-2110
+File Name: Zachalgo.cpp
+
+This file houses the two individual algorithms put together for the Rock, Paper, Scissors project. 
+The first algorithm checks to find the last five moves earlier in the movelist, if found it counters the next.
+The second algorithm just counters the last move.
+
+Variables:
+mymoves - A string that houses each move made by the first algorithm
+oppmoves - A string that houses each move made by the second algorithm 
+rounds - total rounds played
+*/
+
 #include <string>
 #include <iostream>
 #include <cstdlib>
@@ -5,11 +20,13 @@
 
 using namespace std;
 
-
 class zachAIOne{
     public:
     string mymoves;
     int rounds;
+    string oppmoves;
+
+//ALGORITHM 1
 char zachmove(int rounds, string oppmoves, string mymoves){ //this algorithm attempts to find a pattern in my opponents moves by attempting to see if the last five moves had been played prior
     char movelist[3] = {'R', 'P', 'S'}; 
     srand(time(NULL));
@@ -46,6 +63,7 @@ char zachmove(int rounds, string oppmoves, string mymoves){ //this algorithm att
 }
 
 
+//ALGORITHM 2
 char altmove(int rounds, string oppmoves, string mymoves){ //counters the last move
 
     if(rounds < 2){
