@@ -30,26 +30,16 @@
             
             this->moves_from_node[move_before_last]++;
 
-            //DEBUG std::cout << "move_before_last: " << _RPSToChar(move_before_last) << std::endl << "last_move: " << _RPSToChar(last_move) << std::endl;
             for(int i = 0; i < 3; i++){
                 
                 float value = this->weights[move_before_last][i];
-                //DEBUG std::cout << "value: " << value << std::endl;
                 if(i == last_move){
-                    //DEBUG std::cout << "original value: " << this->weights[move_before_last][i] << std::endl;
                     this->weights[move_before_last][i] = ((value * moves_from_node[move_before_last]) + 1) / (moves_from_node[move_before_last] + 1);
                 }else{
                     this->weights[move_before_last][i] = ((value * moves_from_node[move_before_last]) + 0) / (moves_from_node[move_before_last] + 1);
                 }
-                //DEBUG std::cout << "new value: " << this->weights[move_before_last][i] << std::endl;
                  
             }
-            //DEBUG
-            // std::cout << "Chances for " << _RPSToChar(move_before_last) << ":" << std::endl;
-            // for(int i = 0; i < 3; i++){
-            //     std::cout << _RPSToChar(i) << ": " << this->weights[move_before_last][i] << " ";
-            // }
-            //END DEBUG
         }
     }
     int RPS_AI_One::_CharToRPS(char input){
@@ -100,7 +90,6 @@
                     moveindex = i;
                 }
             }
-            //DEBUG std::cout << "Predicted move: " << _RPSToChar(moveindex) << " Counter: " << _RPSToChar((moveindex + 2) % 3) << std::endl;
             return _RPSToChar((moveindex + 2) % 3);
         }
         return 'P';
