@@ -14,7 +14,6 @@ rounds - total rounds played
 */
 
 #include <string>
-#include <iostream>
 #include <cstdlib>
 #include <time.h>
 
