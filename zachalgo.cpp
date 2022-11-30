@@ -5,6 +5,11 @@
 
 using namespace std;
 
+
+class zachAIOne{
+    public:
+    string mymoves;
+    int rounds;
 char zachmove(int rounds, string oppmoves, string mymoves){ //this algorithm attempts to find a pattern in my opponents moves by attempting to see if the last five moves had been played prior
     char movelist[3] = {'R', 'P', 'S'}; 
     srand(time(NULL));
@@ -60,3 +65,4 @@ char altmove(int rounds, string oppmoves, string mymoves){ //counters the last m
 
 
 }
+};
