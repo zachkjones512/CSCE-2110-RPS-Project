@@ -18,18 +18,16 @@ rounds - total rounds played
 #include <cstdlib>
 #include <time.h>
 
-using namespace std;
 
 class zachAIOne{
     public:
-    string mymoves;
+    std::string mymoves;
     int rounds;
-    string oppmoves;
-
+    std::string oppmoves;
+    zachAIOne(){srand(time(NULL)); rounds = 0; mymoves = ""; oppmoves = "";};
 //ALGORITHM 1
-char zachmove(int rounds, string oppmoves, string mymoves){ //this algorithm attempts to find a pattern in my opponents moves by attempting to see if the last five moves had been played prior
+char zachmove(int rounds, std::string oppmoves, std::string mymoves){ //this algorithm attempts to find a pattern in my opponents moves by attempting to see if the last five moves had been played prior
     char movelist[3] = {'R', 'P', 'S'}; 
-    srand(time(NULL));
 
 
     if(rounds < 6){
@@ -38,9 +36,9 @@ char zachmove(int rounds, string oppmoves, string mymoves){ //this algorithm att
     }
     else{ //if its round 7 or above
         
-        string lastfive = oppmoves.substr(rounds-5, 5); //create a substring of the last five moves
+        std::string lastfive = oppmoves.substr(rounds-5, 5); //create a substring of the last five moves
         size_t found = oppmoves.find(lastfive); //find the position of the substring in the list of opponent moves
-        if (found != string::npos && found < rounds-5){ //if the substring is found, read the following move and then counter it
+        if (found != std::string::npos && found < rounds-5){ //if the substring is found, read the following move and then counter it
             if (oppmoves[found+5] == 'R'){
             return 'P';
             }
@@ -64,7 +62,7 @@ char zachmove(int rounds, string oppmoves, string mymoves){ //this algorithm att
 
 
 //ALGORITHM 2
-char altmove(int rounds, string oppmoves, string mymoves){ //counters the last move
+char altmove(int rounds, std::string oppmoves, std::string mymoves){ //counters the last move
 
     if(rounds < 2){
         return 'R';
