@@ -1,44 +1,42 @@
-#include <iostream>
-
-using namespace std;
-
-class Frequency{
-    // variables for move tracking
-    float rockFreq;
-    float paperFreq;
-    float scissorFreq;
-
-    int rockSum;
-    int paperSum;
-    int scissorSum;
-
-    string moves;
-
-    public:
-    Frequency(){
-        rockFreq = 0.00;
-        paperFreq = 0.00;
-        scissorFreq = 0.00;
-
-        rockFreq = 0.00;
-        paperFreq = 0.00;
-        scissorFreq = 0.00;
-    }
-    char frequency();
-
-
-
-
-};
+#include "drkFreq.h"
 
 //char prevMoves[5] = {'R', 'R', 'R', 'R', 'R'};
 
-char Frequency::frequency(){
+char Frequency::SelectRand(){
+    int randMove = rand() % 3;
+    switch(randMove){
+            case 0:
+                return 'R';
+                break;
+            case 1:
+                return 'P';
+                break;
+            default:
+                return 'S';
+                break;
+    }
+}
 
-    // gets sum of each move
-    for(int i=0; i < moves.length(); i++){
-        char sc = moves[i];
-        switch(sc){
+void Frequency::PrintStats(){
+    cout << "Sums" << endl;
+    cout << "Rock: " << rockSum << endl;
+    cout << "Paper: " << paperSum << endl;
+    cout << "Scissors: " << scissorSum << endl;
+
+    cout << "Frequencies" << endl;
+    cout << "Rock: " << rockFreq << endl;
+    cout << "Paper: " << paperFreq << endl;
+    cout << "Scissors: " << scissorFreq << endl;
+}  
+
+char Frequency::ChooseMove(char prevMove){
+
+    //cout << moves << endl;
+    if(prevMove == '|'){
+        return SelectRand();
+    }else{
+        moves += prevMove;
+        switch(prevMove){
             case 'R':
                 rockSum++;
                 break;
@@ -53,13 +51,16 @@ char Frequency::frequency(){
             
             default:
                 cout << "invalid move" << endl;
+                break;
         }
     }
 
+
+
     // gets frequency of each moves occurance
-    rockFreq = rockSum/moves.length();
-    paperFreq = paperSum/moves.length();
-    scissorFreq = scissorSum/moves.length();
+    rockFreq = ((float)rockSum/(float)moves.length());
+    paperFreq = ((float)paperSum/(float)moves.length());
+    scissorFreq = ((float)scissorSum/(float)moves.length());
 
 
     
@@ -74,5 +75,7 @@ char Frequency::frequency(){
     if(scissorFreq > paperFreq && scissorFreq > rockFreq){
         return 'R';
     }
-    return 0;
+
+    
+    return SelectRand();
 }
