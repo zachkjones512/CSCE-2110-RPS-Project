@@ -55,13 +55,14 @@ void RPS_Analysis(int num_rounds, int player_1_wins, int ties){ //TODO: Finish a
 
 int main(){
     int num_rounds = 10;
-    
+
     int player_1_wins = 0, ties = 0;
     char player_1_choice = '|', player_2_choice = '|', player_1_previous_choice = '|';
 
     //INITIALIZE AGENT ONE
     //INITIALIZE AGENT TWO
-    
+    std::cout << "Enter in number of rounds: ";
+    std::cin >> num_rounds;
     for(int i = 0; i < num_rounds; i++){
         
         player_1_previous_choice = player_1_choice;
