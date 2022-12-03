@@ -1,3 +1,9 @@
+//
+//
+//  Written by: Caleb Smay
+//
+//
+
 class RPS_AI_One{
     public:
     //Constructors

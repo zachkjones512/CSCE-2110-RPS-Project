@@ -1,3 +1,9 @@
+//
+//
+//  Written by: Caleb Smay
+//
+//
+
 #include <cstdlib>
 #include <iostream>
 #include "rps_ai_one.h"
