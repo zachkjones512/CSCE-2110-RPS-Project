@@ -44,7 +44,7 @@ int RPS_Judge(char playerOne, char playerTwo, bool printMessage){
 
     return 0;
 }
-void RPS_Analysis(int num_rounds, int player_1_wins, int ties){
+void RPS_Analysis(int num_rounds, int player_1_wins, int ties){ //TODO: Finish analysis function
     std::cout << "Round " << num_rounds << std::endl;
     std::cout << "Win: " << player_1_wins << ", " << player_1_wins / num_rounds << std::endl;
     std::cout << "Tie: " << ties << ", " << ties / num_rounds << std::endl;
@@ -64,11 +64,11 @@ int main(){
     
     for(int i = 0; i < num_rounds; i++){
         
-        //player_1_previous_choice = player_1_choice;
-        //player_1_choice == agent1.ChooseMove(player_2_choice);
-        //player_2_choice == agent2.ChooseMove(player_1_previous_choice);
+        player_1_previous_choice = player_1_choice;
+        //player_1_choice = agent1.ChooseMove(player_2_choice);
+        //player_2_choice = agent2.ChooseMove(player_1_previous_choice);
 
-        int result = RPS_Judge(player_1_choice, player_2_choice, true);
+        int result = RPS_Judge(player_1_choice, player_2_choice, false);
         
         if(result == 0){
             ties++;
