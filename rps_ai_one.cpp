@@ -1,7 +1,7 @@
 //
 //
 //  Written by: Caleb Smay
-//
+//  The winner over rps_ai_two
 //
 
 #include <cstdlib>
