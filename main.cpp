@@ -1,4 +1,5 @@
 #include <iostream>
+#include "drkPattern.h"
 
 //Just a simple judge for Rock Paper Scissors
 //Inputs must be 'R', 'P', or 'S'. Otherwise it will reject the ruling
@@ -85,7 +86,7 @@ int main(){
     int player_1_wins = 0, ties = 0;
     char player_1_choice = '|', player_2_choice = '|', player_1_previous_choice = '|';
 
-    //ClassType agent1;
+    Pattern agent1;
     //ClassType agent2;
 
     std::cout << "Enter in number of rounds: ";
@@ -100,7 +101,7 @@ int main(){
     for(int i = 0; i < num_rounds; i++){
         
         player_1_previous_choice = player_1_choice;
-        //player_1_choice = agent1.ChooseMove(player_2_choice);
+        player_1_choice = agent1.ChooseMove(player_2_choice);
         //player_2_choice = agent2.ChooseMove(player_1_previous_choice);
 
         int result = RPS_Judge(player_1_choice, player_2_choice, false);
