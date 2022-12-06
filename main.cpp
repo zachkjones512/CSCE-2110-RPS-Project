@@ -1,6 +1,4 @@
 #include <iostream>
-#include "rps_ai_one.h"
-#include "simple.h"
 
 //Just a simple judge for Rock Paper Scissors
 //Inputs must be 'R', 'P', or 'S'. Otherwise it will reject the ruling
@@ -55,29 +53,29 @@ void RPS_Analysis(int num_rounds, int player_1_wins, int ties){ //TODO: Finish a
     
     if(player_1_wins > player_1_losses){
         std::cout << "Winning Algorithm: agent1" << std::endl;
-        std::cout << "Win Percentage: " << player_1_wins / num_rounds << std::endl;
-        std::cout << "Tie Percentage: " << ties / num_rounds << std::endl << std::endl;
+        std::cout << "Win Percentage: " << 100 * (float)player_1_wins / (float)num_rounds << "%" << std::endl;
+        std::cout << "Tie Percentage: " << 100 * (float)ties / (float)num_rounds << "%" << std::endl << std::endl;
 
         std::cout << "Losing Algorithm: agent2" << std::endl;
-        std::cout << "Win Percentage: " << player_1_losses / num_rounds << std::endl;
-        std::cout << "Tie Percentage: " << ties / num_rounds << std::endl;
+        std::cout << "Win Percentage: " << 100 * (float)player_1_losses / (float)num_rounds << "%" << std::endl;
+        std::cout << "Tie Percentage: " << 100 * (float)ties / (float)num_rounds << "%" << std::endl;
     }else{
         std::cout << "Winning Algorithm: agent2" << std::endl;
-        std::cout << "Win Percentage: " << player_1_losses / num_rounds << std::endl;
-        std::cout << "Tie Percentage: " << ties / num_rounds << std::endl << std::endl;
+        std::cout << "Win Percentage: " << 100 * (float)player_1_losses / (float)num_rounds << "%" << std::endl;
+        std::cout << "Tie Percentage: " << 100 * (float)ties / (float)num_rounds << "%" << std::endl << std::endl;
 
-        std::cout << "Winning Algorithm: agent1" << std::endl;
-        std::cout << "Win Percentage: " << player_1_wins / num_rounds << std::endl;
-        std::cout << "Tie Percentage: " << ties / num_rounds << std::endl;
+        std::cout << "Losing Algorithm: agent1" << std::endl;
+        std::cout << "Win Percentage: " << 100 * (float)player_1_wins / (float)num_rounds << "%" << std::endl;
+        std::cout << "Tie Percentage: " << 100 * (float)ties / (float)num_rounds << "%" << std::endl;
     }
 }
 void RPS_Status(int current_round, int num_rounds, int player_1_wins, int ties, int times_to_display){
-    if(current_round % (int)(num_rounds / (times_to_display + 1)) == 0 && current_round != 0 && current_round != num_rounds){
+    if(current_round % (int)(num_rounds / (times_to_display + 1)) == 0 && current_round != 0 && current_round != num_rounds - 1){
         int player_1_losses = num_rounds - (player_1_wins + ties);
         std::cout << "Round " << current_round << std::endl;
-        std::cout << "Win: " << player_1_wins << ", " << (float)(player_1_wins / num_rounds) * 100 << std::endl;
-        std::cout << "Tie: " << ties << ", " << (float)(ties / num_rounds) * 100 << std::endl;
-        std::cout << "Loss: " << player_1_losses << ", " << (float)(player_1_losses / num_rounds) * 100 << std::endl << std::endl;
+        std::cout << "Win: " << player_1_wins << ", " << ((float)player_1_wins / (float)num_rounds) * 100 << "%" << std::endl;
+        std::cout << "Tie: " << ties << ", " << ((float)ties / (float)num_rounds) * 100 << "%" << std::endl;
+        std::cout << "Loss: " << player_1_losses << ", " << ((float)player_1_losses / (float)num_rounds) * 100 << "%" << std::endl << std::endl;
     }   
 }
 
@@ -98,6 +96,7 @@ int main(){
     if(times_to_display > num_rounds)
         times_to_display = num_rounds;
 
+    // main loop
     for(int i = 0; i < num_rounds; i++){
         
         player_1_previous_choice = player_1_choice;
