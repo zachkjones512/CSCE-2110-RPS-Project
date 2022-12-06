@@ -26,6 +26,11 @@
             This function checks to see if the move is valid
             then adds it to the list and calls the
             patternFinder() Function to choose the move.
+
+        - SelectRand()
+            This function selects a random move. It's called
+            whenever the previous move is invalid or the 
+            frequencies are all equal.
 */
 
 #include <iostream>
@@ -34,8 +39,8 @@
 using namespace std;
 
 char Pattern::patternFinder(char prevMove){
-    int patternLength = 4;
-    if(moves.length() >= 4){
+    int patternLength = 9;
+    if(moves.length() >= patternLength){
         while(patternLength > 1){
             // prevPattern stores recent moves
             prevPattern = moves.substr(moves.size()-(patternLength-1));
@@ -69,13 +74,13 @@ char Pattern::patternFinder(char prevMove){
 
             // Returns move based on results of predictions
             if(nR > nP && nR > nS){
-                return 'R';
-            }
-            if(nP > nR && nP > nS){
                 return 'P';
             }
-            if(nS > nR && nS > nP){
+            if(nP > nR && nP > nS){
                 return 'S';
+            }
+            if(nS > nR && nS > nP){
+                return 'R';
             }
             patternLength--;
         }
@@ -84,32 +89,19 @@ char Pattern::patternFinder(char prevMove){
 }
 
 char Pattern::ChooseMove(char prevMove){
-    char p;
+    
     // prevents | from being added to moves
     
     if(prevMove == '|'){
         return 'S';
     }else{ 
         moves += prevMove; // adds each move to the list
-        p = patternFinder(prevMove);
+        return patternFinder(prevMove);
     }
-    switch(p){
-        case 'R':
-            return 'P';
-            break;
-        case 'P':
-            return 'S';
-            break;
-        default:
-            return 'R';
-            break;
-    }
+
 }
 
 // prints stats of each round for debuggings
 void Pattern::PrintStats(){
-    cout << "Pattern occurances" << endl;
-    cout << "Rock:      " << nR << endl;
-    cout << "Paper:     " << nP << endl;
-    cout << "Scissors:  " << nS << endl;
+    cout << "\nPattern occurances\n" << "Rock:      " << nR << "\nPaper:     " << nP << "\nScissors:  " << nS << endl;
 }
