@@ -23,18 +23,22 @@ int RPS_Judge(char playerOne, char playerTwo, bool printMessage){
             return 0;
         }else if(playerTwo > playerOne){
             if(playerTwo - playerOne == 1){
-                std::cout << "Player 1 wins." << std::endl << std::endl;
+                if(printMessage)
+                    std::cout << "Player 1 wins." << std::endl << std::endl;
                 return 1;
             }else{
-                std::cout << "Player 2 wins." << std::endl << std::endl;
+                if(printMessage)
+                    std::cout << "Player 2 wins." << std::endl << std::endl;
                 return 2;
             }
         }else{
             if(playerOne - playerTwo == 1){
-                std::cout << "Player 2 wins." << std::endl << std::endl;
+                if(printMessage)
+                    std::cout << "Player 2 wins." << std::endl << std::endl;
                 return 2;
             }else{
-                std::cout << "Player 1 wins." << std::endl << std::endl;
+                if(printMessage)
+                    std::cout << "Player 1 wins." << std::endl << std::endl;
                 return 1;
             }
         }
