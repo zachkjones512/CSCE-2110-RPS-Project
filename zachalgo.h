@@ -1,7 +1,7 @@
 /*
 Name: Zachary Jones
 Class: CSCE-2110
-File Name: Zachalgo.cpp
+File Name: Zachalgo.h
 
 This file houses the two individual algorithms put together for the Rock, Paper, Scissors project. 
 The first algorithm checks to find the last five moves earlier in the movelist, if found it counters the next.
