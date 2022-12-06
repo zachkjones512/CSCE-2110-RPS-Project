@@ -71,7 +71,7 @@ void RPS_Analysis(int num_rounds, int player_1_wins, int ties){ //TODO: Finish a
     }
 }
 void RPS_Status(int current_round, int num_rounds, int player_1_wins, int ties, int times_to_display){
-    if(current_round % (int)(num_rounds / (times_to_display + 1)) == 0 && current_round != 0 && current_round != num_rounds - 1){
+    if(current_round % (int)(num_rounds / (times_to_display)) == 0 && current_round != 0 && current_round != num_rounds - 1){
         int player_1_losses = num_rounds - (player_1_wins + ties);
         std::cout << "Round " << current_round << std::endl;
         std::cout << "Win: " << player_1_wins << ", " << ((float)player_1_wins / (float)num_rounds) * 100 << "%" << std::endl;
