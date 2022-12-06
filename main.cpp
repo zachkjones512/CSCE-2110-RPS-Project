@@ -1,4 +1,6 @@
 #include <iostream>
+#include "rps_ai_one.h"
+#include "simple.h"
 
 //Just a simple judge for Rock Paper Scissors
 //Inputs must be 'R', 'P', or 'S'. Otherwise it will reject the ruling
@@ -85,8 +87,8 @@ int main(){
     int player_1_wins = 0, ties = 0;
     char player_1_choice = '|', player_2_choice = '|', player_1_previous_choice = '|';
 
-    //INITIALIZE AGENT ONE
-    //INITIALIZE AGENT TWO
+    //ClassType agent1;
+    //ClassType agent2;
 
     std::cout << "Enter in number of rounds: ";
     std::cin >> num_rounds;
