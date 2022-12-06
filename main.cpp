@@ -59,7 +59,7 @@ void RPS_Analysis(int num_rounds, int player_1_wins, int ties){ //TODO: Finish a
     if(player_1_wins > player_1_losses){
         std::cout << "Winning Algorithm: agent1" << std::endl;
         std::cout << "Win Percentage: " << player_1_wins / num_rounds << std::endl;
-        std::cout << "Tie Percentage: " << ties / num_rounds << std::endl;
+        std::cout << "Tie Percentage: " << ties / num_rounds << std::endl << std::endl;
 
         std::cout << "Losing Algorithm: agent2";
         std::cout << "Win Percentage: " << player_1_losses / num_rounds << std::endl;
